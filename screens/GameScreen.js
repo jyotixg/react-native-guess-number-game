@@ -7,7 +7,7 @@ import MainButton from '../components/MainButton';
 // import { Ionicons } from '@expo/vector-icons'; // not working for few icons
 import { AntDesign } from '@expo/vector-icons';
 import BodyText from '../components/BodyText';
-
+import { Dimensions } from 'react-native';
 
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
@@ -69,6 +69,12 @@ const GameScreen = (props) => {
         setPastGuesses(currPassGues => [nextNumber.toString(), ...currPassGues])
     }
 
+    let listContainerStyle = styles.listContainer;
+
+    if(Dimensions.get('window').height>600){
+        listContainerStyle = styles.listContainerBig
+    }
+
     return (
         <View style={styles.screen} >
             <Text style={defaultStyles.bodyText} >Opponent's Guess</Text>
@@ -83,7 +89,7 @@ const GameScreen = (props) => {
                 </MainButton>
             </Card>
 
-            <View style={styles.listContainer} >
+            <View style={listContainerStyle} >
                 {/* <ScrollView contentcontainerstyle={styles.list} >
                     {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
                 </ScrollView> */}
@@ -109,11 +115,18 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: "row",
         justifyContent: "space-around",
-        marginTop: 20,
+        // marginTop: 20,
+        marginTop: Dimensions.get('window').height > 600 ? 20 : 5,
         width: 300,
         maxWidth: "90%"
     },
     listContainer: {
+        flex: 1,
+        // width: "80%",
+        // width: Dimensions.get('window').width > 350 ? "60%": "80%"
+        width: "60%"    
+    },
+    listContainerBig: {
         flex: 1,
         width: "80%"
     },

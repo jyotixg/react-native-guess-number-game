@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, Image } from 'react-native'
+import { View, Text, StyleSheet, Button, Image, Dimensions } from 'react-native'
 import React from 'react'
 import BodyText from '../components/BodyText'
 import TitleText from '../components/TitleText'
@@ -42,22 +42,27 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
-    resultContainer: {
-        marginHorizontal: 30,
-        marginVertical: 20
-    },
     imageContainer: {
-        height: 300,
-        width: 300,
-        borderRadius: 150,
+        // height: 300,
+        // width: 300,
+        // borderRadius: 150,
+        // marginVertical: 30,
+        height: Dimensions.get('window').width * 0.7,
+        width: Dimensions.get('window').width * 0.7,
+        borderRadius: Dimensions.get('window').width * 0.7 / 2,
+        marginVertical: Dimensions.get('window').height / 30,
         borderWidth: 3,
         borderColor: "black",
         overflow: "hidden",
-        marginVertical: 30
     },
     image: {
         height: "100%",
         width: "100%"
+    },
+    resultContainer: {
+        marginHorizontal: 30,
+        // marginVertical: 20
+        marginVertical: Dimensions.get('window').height / 60,
     },
     highlight: {
         color: Color.primary,
@@ -65,7 +70,8 @@ const styles = StyleSheet.create({
     },
     resultText: {
         textAlign: "center",
-        fontSize: 20
+        // fontSize: 20
+        fontSize: Dimensions.get('window').height < 600 ? 16 : 20,
     }
 })
 

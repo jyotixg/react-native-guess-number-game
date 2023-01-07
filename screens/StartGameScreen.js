@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, Keyboard, Button, TouchableWithoutFeedback, Alert } from 'react-native'
+import { View, Text, StyleSheet, TextInput, Keyboard, Button, TouchableWithoutFeedback, Alert, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import Card from '../components/Card'
 import Color from '../constants/Color'
@@ -79,7 +79,6 @@ const StartGameScreen = (props) => {
                 {confirmedOutput}
             </View>
         </TouchableWithoutFeedback>
-
     )
 }
 
@@ -95,8 +94,9 @@ const styles = StyleSheet.create({
         // fontFamily: "open-sans-bold"
     },
     inputContainer: {
-        width: 300,
-        maxWidth: "80%",
+        width: "80%",
+        minWidth: 300,
+        maxWidth: "95%",
         alignItems: "center",
     },
     buttonContainer: {
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     button: {
-        width: 100
+        // width: 100
+        width: Dimensions.get('window').width / 4
     },
     input: {
         width: 50,

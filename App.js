@@ -44,7 +44,7 @@ export default function App() {
   }
 
   const gameOverHandler = (numOfRounds) => {
-    console.log(numOfRounds, "numOfRounds")
+    // console.log(numOfRounds, "numOfRounds")
     setGuessRounds(numOfRounds);
   }
 

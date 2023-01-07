@@ -3,14 +3,13 @@ import React from 'react'
 
 const BodyText = (props) => {
     return (
-        <Text style={styles.title} >{props.children}</Text>
+        <Text style={{ ...props.style, ...styles.title }} >{props.children}</Text>
     )
 }
 
 const styles = StyleSheet.create({
     body: {
-        fontFamily: "open-sans-bold",
-        fontSize: 18
+        fontFamily: "open-sans",
     }
 })
 
